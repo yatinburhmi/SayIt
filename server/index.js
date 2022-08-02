@@ -10,11 +10,12 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 
-app.use('/posts', postRoutes);
+
 
 app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
+app.use('/posts', postRoutes);
 
 //TODO: put this in .env later
 const CONNECTION_URL = 'mongodb+srv://root:root@cluster0.yjd6fxz.mongodb.net/?retryWrites=true&w=majority'
